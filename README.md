@@ -43,47 +43,59 @@ Assumptions:
 ### Phase 1 — Test Strategy & Architecture
 Deliverable: Markdown or PDF (≤ 2 pages)
 
-Explain:
+Description: Describe in a document what you are about to test and explain our strategy to test it.
+
+Examples:
 - E2E vs integration vs contract testing
 - Test pyramid strategy
 - Tooling choices and justification
-- Environment strategy (Dev, VLab, Prod-like)
 
 ---
 
 ### Phase 2 — End-to-End Automation
-Deliverable: Git repo 
+Deliverable: Github repo 
 
-Implement one E2E automated test:
+Implement one automated test, must include:
+- Access token generation
 - Send logs via API
 - Handle async processing
 - Validate output via another API
+
+Plus:
+
 - Retry, timeout, correlation logic
 
 ---
 
 ### Phase 3 — Performance & Stress Testing
-Deliverable: Test + explanation
+Deliverable: Automated Test + explanation
 
-- Load / stress / spike test
+- Load + stress test
+
+Plus:
+
 - Measure latency, throughput, error rate
 - Define Apdex and release thresholds
 
 ---
 
 ### Phase 4 — Security QA Validation
-Deliverable: Tests or documented scenarios
+Deliverable: Tests, Documented scenarios or Diagram
 
 - Input validation
 - Auth misuse
+
+Plus:
+
 - Error handling (no sensitive leaks)
 - One OWASP Top 10 regression
 
 ---
 
 ### Phase 5 — CI/CD & Quality Gates
-Deliverable: Pipeline YAML or diagram
+Deliverable: Diagram, Document or Simple Explanation
 
+Explain:
 - When tests run
 - What blocks a release
 - Per-commit vs nightly strategy
@@ -91,6 +103,10 @@ Deliverable: Pipeline YAML or diagram
 ---
 
 ### Phase 6 — Regression & Reporting
+Deliverable: Document or Simple Explanation
+
+Description: 
+
 Explain:
 - Flaky test detection
 - Regression prevention
@@ -160,7 +176,7 @@ Each area scored 0–5.
 A simple backend is provided so QA can focus on automation.
 
 ### Example Stack
-- Node.js / Python / Java (any)
+- Node.js
 - REST API
 - In-memory queue
 - Async worker
@@ -177,6 +193,8 @@ Backend repo contains:
 - Known failure scenarios
 
 Candidates should NOT modify backend code.
+
+Look the [logging-backend](./logging-backend/) folder.
 
 ---
 

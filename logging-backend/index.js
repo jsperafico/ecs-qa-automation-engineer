@@ -21,12 +21,13 @@ let memoryLeak = [];
 const FLAKY_MODE = true; // always ON by default
 const FAILURE_RATE = parseFloat(process.env.FAILURE_RATE || '0.3');
 const SLOW_DEP_MS = parseInt(process.env.SLOW_DEP_MS || '0');
-const MEMORY_LEAK_MODE = process.env.MEMORY_LEAK_MODE === 'true';
+const MEMORY_LEAK_MODE = process.env.MEMORY_LEAK_MODE ? process.env.MEMORY_LEAK_MODE === 'true' : true;
+const RATE_LIMIT = parseInt(process.env.RATE_LIMIT || '100'); // requests per minute
 const JWT_SECRET = 'qa-secret';
 
 const limiter = rateLimit({
   windowMs: 60 * 1000,
-  max: 30
+  max: RATE_LIMIT
 });
 app.use(limiter);
 

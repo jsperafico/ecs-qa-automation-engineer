@@ -13,7 +13,7 @@
 
 ## Performance
 - [ ] Measures latency or throughput
-- [ ] Detects slowdown when SLOW_DEP_MS > 0
+- [ ] Detects slowdown
 
 ## Security
 - [ ] Handles token expiry
