@@ -40,7 +40,11 @@ The depiction above, still follows the general idea of a Test Pyramid being:
 ### Functional Testing
 
 A Functional Test verifies that the system behaves according to defined requirements by validating features, inputs, and expected outputs.
-There are several different types that have been ommited during this document, simply because goes out of scope. Among them, are Unit tests, Integration Tests, Component Tests, Contract tests and User Acceptance Tests.
+There are several different types that have been ommited during this document, simply because goes out of scope. Among them, are Unit tests, Component Tests, Contract tests and User Acceptance Tests.
+
+#### Integration Test
+
+An integration test verifies that multiple components or services work together correctly, focusing on their interactions, data flow, and integration points rather than isolated functionality.
 
 #### E2E Test
 
