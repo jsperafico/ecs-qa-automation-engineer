@@ -1,0 +1,17 @@
+services:
+  functional:
+    build:
+      context: ./functional.repository
+    volumes:
+      - ./functional.repository/target/allure-results:/app/target/allure-results
+    command: mvn test -Dkarate.env=container -DbaseUrl=http://backend:3000
+    depends_on:
+      - backend
+  backend:
+    build:
+      context: ./logging-backend
+    ports:
+      - "3000:3000"
+    environment:
+      - SLOW_DEP_MS=200
+      - RATE_LIMIT=100
