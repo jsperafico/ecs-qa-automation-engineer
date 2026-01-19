@@ -30,3 +30,5 @@ should be able to give a good indication where we are going at. In order to visu
 ```sh
 mvn allure:serve
 ```
+
+![Allure report](../docs/images/allure-report.png)
