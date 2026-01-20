@@ -38,4 +38,18 @@ Feature:
     Then status 202
     And match response.correlationId != first
   
-    # TODO: Create scenarios in order to cover log retrieval endpoint
+  Scenario: must not be able to insert a log over 500 characters long
+    Given path '/logs'
+    And request { "Lorem": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibu"}
+    When method post
+    Then status 202
+    And match response contains {correlationId: '#!'}
+
+    * def first = response.correlationId
+
+    Given path '/logs/' + uuid
+    When method get
+    Then status 200
+    And match response.status == 'FAILED'
+    # Message content shouldn't be asserted, since we are testing if the logic is correct.  
+  

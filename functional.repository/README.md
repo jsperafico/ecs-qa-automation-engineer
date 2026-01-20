@@ -1,6 +1,13 @@
 # Functional Test repository
 
-This repository contains both Integration and E2E automated tests.
+This repository contains both Integration and E2E automated tests. The technology stack used is:
+
+- Java 21+
+- Karate
+- Allure 2
+
+## Local Execution
+
 A local execution of a single test type can be achieved through:
 
 ```sh
