@@ -1,2 +1,4 @@
 functional.repository/target
 functional.repository/.allure
+non-functional.repository/results
+non-functional.repository/node_modules
