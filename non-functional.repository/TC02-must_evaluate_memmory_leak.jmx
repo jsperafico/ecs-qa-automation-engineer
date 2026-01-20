@@ -21,6 +21,8 @@
           </elementProp>
         </collectionProp>
       </elementProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
     </TestPlan>
     <hashTree>
       <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="HTTP Request Defaults">
@@ -91,7 +93,7 @@
           <hashTree/>
         </hashTree>
       </hashTree>
-      <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="Scenario: Must evaluate memory leak">
+      <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="Scenario: Must evaluate memory leak" enabled="true">
         <collectionProp name="ultimatethreadgroupdata">
           <collectionProp name="-440021374">
             <stringProp name="49">1</stringProp>
@@ -124,11 +126,11 @@
           </doubleProp>
         </ConstantThroughputTimer>
         <hashTree/>
-        <CriticalSectionController guiclass="CriticalSectionControllerGui" testclass="CriticalSectionController" testname="Critical Section Controller">
+        <CriticalSectionController guiclass="CriticalSectionControllerGui" testclass="CriticalSectionController" testname="Critical Section Controller" enabled="true">
           <stringProp name="CriticalSectionController.lockName">authLock</stringProp>
         </CriticalSectionController>
         <hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST /auth/token">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST /auth/token" enabled="true">
             <stringProp name="HTTPSampler.path">/auth/token</stringProp>
             <stringProp name="HTTPSampler.method">POST</stringProp>
             <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
@@ -137,7 +139,7 @@
             </elementProp>
           </HTTPSamplerProxy>
           <hashTree>
-            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion">
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
               <collectionProp name="Asserion.test_strings">
                 <stringProp name="49586">200</stringProp>
               </collectionProp>
@@ -147,7 +149,7 @@
               <intProp name="Assertion.test_type">8</intProp>
             </ResponseAssertion>
             <hashTree/>
-            <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="On - POST /auth/token -  extract JWT">
+            <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="On - POST /auth/token -  extract JWT" enabled="true">
               <stringProp name="JSONPostProcessor.referenceNames">JWT</stringProp>
               <stringProp name="JSONPostProcessor.jsonPathExprs">$.token</stringProp>
               <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
@@ -276,27 +278,17 @@
           <stringProp name="filename"></stringProp>
           <stringProp name="parameters"></stringProp>
           <stringProp name="script">def initialMemory = vars.get(&apos;InitialMemory&apos;) as int
-            def memoryUsage = vars.get(&apos;memoryUsage&apos;) as int
-            def acceptableUsage = initialMemory + 2
+def memoryUsage = vars.get(&apos;memoryUsage&apos;) as int
+def acceptableUsage = initialMemory + 2
 
-            if (memoryUsage &gt; acceptableUsage) {
-            AssertionResult.setFailure(true)
-            AssertionResult.setFailureMessage(&quot;Expected memoryUsage &gt; acceptableUsage, got
-            ${memoryUsage} &gt; ${acceptableUsage}&quot;)
-            }
+if (memoryUsage &gt; acceptableUsage) {
+	AssertionResult.setFailure(true)
+	AssertionResult.setFailureMessage(&quot;Expected memoryUsage &gt; acceptableUsage, got ${memoryUsage} &gt; ${acceptableUsage}&quot;)
+}
 </stringProp>
           <stringProp name="scriptLanguage">groovy</stringProp>
         </JSR223Sampler>
-        <hashTree>
-          <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="Assert Memory Leak" enabled="true">
-            <stringProp name="cacheKey">true</stringProp>
-            <stringProp name="filename"></stringProp>
-            <stringProp name="parameters"></stringProp>
-            <stringProp name="script"></stringProp>
-            <stringProp name="scriptLanguage">groovy</stringProp>
-          </JSR223Assertion>
-          <hashTree/>
-        </hashTree>
+        <hashTree/>
       </hashTree>
       <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
         <boolProp name="ResultCollector.error_logging">false</boolProp>
@@ -372,8 +364,8 @@
         <stringProp name="filename"></stringProp>
       </ResultCollector>
       <hashTree/>
-      <nz.co.breakpoint.jmeter.JUnitReporter guiclass="TestBeanGUI" testclass="nz.co.breakpoint.jmeter.JUnitReporter" testname="JUnit Reporter" enabled="true">
-        <stringProp name="filename">TC02-must_evaluate_memmory_leak.xml</stringProp>
+      <nz.co.breakpoint.jmeter.JUnitReporter guiclass="TestBeanGUI" testclass="nz.co.breakpoint.jmeter.JUnitReporter" testname="JUnit Reporter">
+        <stringProp name="filename">results/tc02.xml</stringProp>
         <collectionProp name="kpis">
           <elementProp name="Typical system response under normal load must be lower than 1.5s" elementType="nz.co.breakpoint.jmeter.KPI" testname="Typical system response under normal load must be lower than 1.5s">
             <stringProp name="metric">MEAN</stringProp>
@@ -402,7 +394,7 @@
         </collectionProp>
       </nz.co.breakpoint.jmeter.JUnitReporter>
       <hashTree/>
-      <BackendListener guiclass="BackendListenerGui" testclass="BackendListener" testname="Backend Listener">
+      <BackendListener guiclass="BackendListenerGui" testclass="BackendListener" testname="Backend Listener" enabled="true">
         <elementProp name="arguments" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments">
           <collectionProp name="Arguments.arguments">
             <elementProp name="testName" elementType="Argument">

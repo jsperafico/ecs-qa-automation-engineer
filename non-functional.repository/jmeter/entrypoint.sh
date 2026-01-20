@@ -11,11 +11,7 @@ echo "START Running Jmeter on `date`"
 echo "JVM_ARGS=${JVM_ARGS}"
 echo "jmeter args=$@"
 
-jmeter -n -t "/app/TC01-must_succeed_validating_accuracy_of_rate_limiter.jmx" -Jprotocol=http -Jhost=backend -l /app/results/tc01.jtl  -j /app/results/tc01.log -Jjmeter.save.saveservice.autoflush=true -Jjmeterengine.force.system.exit=true
-jmeter -n -t "/app/TC02-must_evaluate_memmory_leak.jmx" -Jprotocol=http -Jhost=backend -l /app/results/tc02.jtl -j /app/results/tc02.log -Jjmeter.save.saveservice.autoflush=true -Jjmeterengine.force.system.exit=true
-
-echo $(ls /app)
-echo $(ls /opt/apache-jmeter-5.6.3/bin)
-echo $(ls /opt/apache-jmeter-5.6.3)
+jmeter -n -t "/app/TC01-must_succeed_validating_accuracy_of_rate_limiter.jmx" -Jprotocol=http -Jhost=backend -l /app/results/tc01.jtl  -j /app/results/tc01.log -Jjmeter.save.saveservice.autoflush=true -Jjmeterengine.force.system.exit=true 
+jmeter -n -t "/app/TC02-must_evaluate_memmory_leak.jmx" -Jprotocol=http -Jhost=backend -l /app/results/tc02.jtl -j /app/results/tc02.log -Jjmeter.save.saveservice.autoflush=true -Jjmeterengine.force.system.exit=true 
 
 echo "END Running Jmeter on `date`"

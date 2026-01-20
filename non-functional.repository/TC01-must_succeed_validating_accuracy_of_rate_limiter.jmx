@@ -21,6 +21,8 @@
           </elementProp>
         </collectionProp>
       </elementProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
     </TestPlan>
     <hashTree>
       <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="HTTP Request Defaults">
@@ -303,8 +305,8 @@
         <stringProp name="filename"></stringProp>
       </ResultCollector>
       <hashTree/>
-      <nz.co.breakpoint.jmeter.JUnitReporter guiclass="TestBeanGUI" testclass="nz.co.breakpoint.jmeter.JUnitReporter" testname="JUnit Reporter" enabled="true">
-        <stringProp name="filename">TC01-must_succeed_validating_accuracy_of_rate_limiter.xml</stringProp>
+      <nz.co.breakpoint.jmeter.JUnitReporter guiclass="TestBeanGUI" testclass="nz.co.breakpoint.jmeter.JUnitReporter" testname="JUnit Reporter">
+        <stringProp name="filename">results/tc01.xml</stringProp>
         <collectionProp name="kpis">
           <elementProp name="Typical system response under normal load must be lower than 1.5s" elementType="nz.co.breakpoint.jmeter.KPI" testname="Typical system response under normal load must be lower than 1.5s">
             <stringProp name="metric">MEAN</stringProp>
@@ -327,7 +329,7 @@
         </collectionProp>
       </nz.co.breakpoint.jmeter.JUnitReporter>
       <hashTree/>
-      <BackendListener guiclass="BackendListenerGui" testclass="BackendListener" testname="Backend Listener">
+      <BackendListener guiclass="BackendListenerGui" testclass="BackendListener" testname="Backend Listener" enabled="true">
         <elementProp name="arguments" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments">
           <collectionProp name="Arguments.arguments">
             <elementProp name="testName" elementType="Argument">
