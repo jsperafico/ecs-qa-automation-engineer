@@ -47,7 +47,7 @@ services:
       context: ./non-functional.repository
     volumes:
       - "./non-functional.repository/TC01-must_succeed_validating_accuracy_of_rate_limiter.jmx:/app/TC01-must_succeed_validating_accuracy_of_rate_limiter.jmx"
-      - "./non-functional.repository/TC02-must_evaluate_memmory_leak.jmx:/app/TC02-must_evaluate_memmory_leak.jmx"
+      - "./non-functional.repository/TC02-must_evaluate_memory_leak.jmx:/app/TC02-must_evaluate_memory_leak.jmx"
       - "./non-functional.repository/results:/app/results"
     depends_on:
       - influxdb

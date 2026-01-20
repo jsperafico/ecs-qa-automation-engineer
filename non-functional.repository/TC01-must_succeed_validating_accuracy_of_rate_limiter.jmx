@@ -132,9 +132,9 @@
             <stringProp name="parameters"></stringProp>
             <stringProp name="script">def JWT = vars.get(&quot;JWT&quot;)
 
-              if (!JWT) {
-              vars.put(&quot;JWT&quot;, props.get(&quot;JWT&quot;))
-              }
+if (!JWT) {
+	vars.put(&quot;JWT&quot;, props.get(&quot;JWT&quot;))
+}
 </stringProp>
             <stringProp name="scriptLanguage">groovy</stringProp>
           </JSR223PreProcessor>
@@ -226,7 +226,8 @@
           <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor" enabled="true">
             <stringProp name="JSONPostProcessor.referenceNames">memoryLeak</stringProp>
             <stringProp name="JSONPostProcessor.jsonPathExprs">$.memoryUsageMB</stringProp>
-            <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
+            <stringProp name="JSONPostProcessor.defaultValues">NOT_FOUND</stringProp>
           </JSONPostProcessor>
           <hashTree/>
         </hashTree>
@@ -308,19 +309,19 @@
       <nz.co.breakpoint.jmeter.JUnitReporter guiclass="TestBeanGUI" testclass="nz.co.breakpoint.jmeter.JUnitReporter" testname="JUnit Reporter">
         <stringProp name="filename">results/tc01.xml</stringProp>
         <collectionProp name="kpis">
-          <elementProp name="Typical system response under normal load must be lower than 1.5s" elementType="nz.co.breakpoint.jmeter.KPI" testname="Typical system response under normal load must be lower than 1.5s">
+          <elementProp name="TC01 - Typical system response under normal load must be lower than 1.5s" elementType="nz.co.breakpoint.jmeter.KPI" testname="TC01 - Typical system response under normal load must be lower than 1.5s">
             <stringProp name="metric">MEAN</stringProp>
             <stringProp name="comparator">&lt;</stringProp>
             <stringProp name="threshold">1500</stringProp>
             <stringProp name="label">.*</stringProp>
           </elementProp>
-          <elementProp name="Percentage of failed or erroneous responses" elementType="nz.co.breakpoint.jmeter.KPI" testname="Percentage of failed or erroneous responses">
+          <elementProp name="TC01 - Percentage of failed or erroneous responses" elementType="nz.co.breakpoint.jmeter.KPI" testname="TC01 - Percentage of failed or erroneous responses">
             <stringProp name="metric">ERRORS</stringProp>
             <stringProp name="label">.*</stringProp>
             <stringProp name="comparator">&lt;</stringProp>
             <stringProp name="threshold">0.03</stringProp>
           </elementProp>
-          <elementProp name="Worst-case response time for 99% of requests" elementType="nz.co.breakpoint.jmeter.KPI" testname="Worst-case response time for 99% of requests">
+          <elementProp name="TC01 - Worst-case response time for 99% of requests" elementType="nz.co.breakpoint.jmeter.KPI" testname="TC01 - Worst-case response time for 99% of requests">
             <stringProp name="metric">P99</stringProp>
             <stringProp name="label">.*</stringProp>
             <stringProp name="comparator">&lt;</stringProp>
@@ -329,7 +330,7 @@
         </collectionProp>
       </nz.co.breakpoint.jmeter.JUnitReporter>
       <hashTree/>
-      <BackendListener guiclass="BackendListenerGui" testclass="BackendListener" testname="Backend Listener" enabled="true">
+      <BackendListener guiclass="BackendListenerGui" testclass="BackendListener" testname="Backend Listener">
         <elementProp name="arguments" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments">
           <collectionProp name="Arguments.arguments">
             <elementProp name="testName" elementType="Argument">

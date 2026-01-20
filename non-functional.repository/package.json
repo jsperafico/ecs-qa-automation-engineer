@@ -1,0 +1,14 @@
+{
+  "name": "allure",
+  "version": "1.0.0",
+  "description": "Run allure to visualize test results",
+  "license": "ISC",
+  "author": "Jonathan Pinto Sperafico",
+  "type": "commonjs",
+  "scripts": {
+    "allure": "allure serve results"
+  },
+  "dependencies": {
+    "allure": "^3.0.1"
+  }
+}
